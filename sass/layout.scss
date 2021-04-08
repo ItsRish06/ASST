@@ -1,0 +1,46 @@
+.container{
+    
+}
+
+.header{
+    width:100vw;
+    padding:2rem;
+    height:9vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    
+    &__title{
+        font-family: 'Bebas Neue';
+        font-weight: bold;
+        font-size: 5rem;
+        align-self: center;
+        
+        text-decoration: underline;
+        text-decoration-color: var(--color-primary-light);
+    
+    }
+
+    &__logo{
+        align-self: center;
+        transform: scale(0.65);
+    }
+
+
+}
+
+.content{
+    display:flex;
+}
+
+.sidebar{
+    flex:0 0 18%;
+    height:91vh;
+    background-color:var(--color-grey-dark-1);
+}
+
+.hotel-view{
+    background-color: yellow;
+    flex:1;
+}

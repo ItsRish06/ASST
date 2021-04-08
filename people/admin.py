@@ -1,8 +1,17 @@
 from django.contrib import admin
-from .models import (Resident,Staff,Role,Visitor)
+from .models import (People,Role,Visitor,UnknownVisitor)
 
 # Register your models here.
-admin.site.register(Resident)
-admin.site.register(Staff)
+class VisitorAdmin(admin.ModelAdmin):
+    list_display = ('name','temp','date','time')
+    search_fields=('name',)
+
+class PeopleAdmin(admin.ModelAdmin):
+    list_display = ('name','role','contact','registration_date')
+    search_fields=('name','role')
+
+
+admin.site.register(People,PeopleAdmin)
 admin.site.register(Role)
-admin.site.register(Visitor)
+admin.site.register(Visitor,VisitorAdmin)
+admin.site.register(UnknownVisitor,VisitorAdmin)

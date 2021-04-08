@@ -1,0 +1,22 @@
+{
+  "name": "asst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss static/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsRish06/ASST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsRish06/ASST/issues"
+  },
+  "homepage": "https://github.com/ItsRish06/ASST#readme",
+  "devDependencies": {
+    "sass": "^1.32.8"
+  }
+}
