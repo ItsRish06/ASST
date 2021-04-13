@@ -1,0 +1,23 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block title %}Visitors{% endblock title %}
+{% block content-header %}Visitors{% endblock content-header %}
+
+{% block content %}
+    <div class="visitor-list">
+        {% for visitor in visitors %}
+            <div class="visitor-card">
+                <div class="visitor-card__name-time" >
+                    <span class="visitor-card__name-time__name">{{visitor.name}}</span>
+                    <span class="visitor-card__name-time__date">{{visitor.date}} {{visitor.time}}</span>
+                </div>
+                <div class="visitor-card__temp-display">
+                    <img src="{% static 'img/temp.png' %}" alt="" class="visitor-card__temp-display__logo">
+                    <span class="visitor-card__temp-display__temp">{{visitor.temp}}&#8451;</span> 
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

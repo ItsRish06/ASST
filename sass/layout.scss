@@ -3,12 +3,13 @@
 }
 
 .header{
-    width:100vw;
+    width:100%;
     padding:2rem;
     height:9vh;
     display: flex;
     justify-content: center;
     position: relative;
+    
 
     
     &__title{
@@ -32,15 +33,18 @@
 
 .content{
     display:flex;
+    background-color: var(--color-primary-light);
 }
 
-.sidebar{
+.sidebar-container{
     flex:0 0 18%;
     height:91vh;
-    background-color:var(--color-grey-dark-1);
+    padding:1rem;
 }
 
-.hotel-view{
-    background-color: yellow;
+.content-view{
     flex:1;
+    height:91vh;
+    padding:1rem;
+
 }

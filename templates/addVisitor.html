@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Add Visitor{% endblock title %}
+
+{% block content-header %}Add Visitor{% endblock content-header %}
+
+{% block content %}
+    <div class="form-container">
+        <div class="form-container__form">
+            <div class="form-container__form-header">
+                <span class="form-container__form-header__title">Visitor</span>
+            </div>
+            <form method="POST" class="form",action="/form">
+                {% csrf_token %}
+                <div class="form__group">
+                    <label for='id_name' class="form__label">Name</label>
+                    {{form.name}}
+                </div>
+                <div class="form__group">
+                    <label for='id_temp' class="form__label">Temperature</label>
+                    {{form.temp}}
+                </div>
+                <button type="submit" class="form__btn">Add</button>
+            </form>
+        </div>
+        <div class="form-container__form">
+            <div class="form-container__form-header">
+                <span class="form-container__form-header__title">Unknown Visitor</span>
+            </div>
+            <form method="POST" class="form" action="unknown">
+                {% csrf_token %}
+                <div class="form__group">
+                    <label for='id_name' class="form__label">Name</label>
+                    {{form1.name}}
+                </div>
+                <div class="form__group">
+                    <label for='id_name' class="form__label">Temperature</label>
+                    {{form1.temp}}
+                </div>
+                <button type="submit" class="form__btn">Add</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

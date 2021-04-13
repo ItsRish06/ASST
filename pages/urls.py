@@ -1,7 +1,10 @@
 from django.urls import path,include
-from .views import home
+from .views import visitors,addVisitors,unknownForm
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', home,name = "home"),
+    path('', visitors,name = "visitors"),
+    path('addVisitor',addVisitors,name = "addVisitor"),
+    path('unknown',unknownForm,name = "unknown")
 
 ]

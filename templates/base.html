@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <div class="container">
+        <header class='header'>
+                <img src="{% static 'img/red-sec.png' %}" class='header__logo'>
+                <p class="header__title">ASST</p>
+            </div>
+        </header>
+    </div>
+    <div class="content">
+        <div class="sidebar-container">
+            <nav class="sidebar">
+                <ul class="side-nav">
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <img src="../static/img/meter.png" alt="" class="side-nav__icon">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="{% url 'visitors'%}" class="side-nav__link">
+                            <img src="../static/img/user.png" alt="" class="side-nav__icon">
+                            <span>Visitors</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <img src="../static/img/office.png" alt="" class="side-nav__icon">
+                            <span>Residents</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <img src="../static/img/profile.png" alt="" class="side-nav__icon">
+                            <span>Staff</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="{% url 'addVisitor'%}" class="side-nav__link">
+                            <img src="../static/img/user-plus.png" alt="" class="side-nav__icon">
+                            <span>Add Visitor</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content-view">
+            <div class="content-header">
+                <span class="content-header__title">
+                    {% block content-header %}{% endblock content-header %}
+                </span>
+            </div>
+            <div class="details">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
