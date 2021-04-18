@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content-header %}Dashboard{% endblock content-header %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="stats">
+            <div class="stats-card ">
+                <span class="stats-card__header">
+                    Number of visitors today
+                </span>
+                <span class="stats-card__number">
+                    {{visitors}}
+                </span>
+            </div>
+            <div class="stats-card">
+                <span class="stats-card__header">
+                    Avg temperature
+                </span>
+                <span class="stats-card__number">
+                    {{temp}}&#8451;
+                </span>
+            </div>
+            <div class="stats-card">
+                <span class="stats-card__header">
+                    Highest temperature 
+                </span>
+                <span class="stats-card__number">
+                    {{highest}}&#8451;
+                </span>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

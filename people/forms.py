@@ -12,7 +12,7 @@ class VisitorForm(forms.ModelForm):
             'temp':forms.NumberInput(attrs={'class':'form__input','placeholder':'Temperature'})
         }
 
-class UnknownVisitor(forms.ModelForm):
+class UnknownVisitorForm(forms.ModelForm):
     class Meta:
         model = UnknownVisitor
         fields = "__all__"

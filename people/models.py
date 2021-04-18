@@ -26,8 +26,7 @@ class People(models.Model):
 class Visitor(models.Model):
     name = models.ForeignKey(People,on_delete=models.DO_NOTHING)
     temp = models.IntegerField()
-    date = models.DateField(auto_now_add=True)
-    time = models.TimeField(auto_now_add=True)
+    date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.name}"
@@ -35,8 +34,7 @@ class Visitor(models.Model):
 class UnknownVisitor(models.Model):
     name = models.CharField(max_length=150)
     temp = models.IntegerField()
-    date = models.DateField(auto_now_add=True)
-    time = models.TimeField(auto_now_add=True)
+    date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

@@ -3,7 +3,7 @@ from .models import (People,Role,Visitor,UnknownVisitor)
 
 # Register your models here.
 class VisitorAdmin(admin.ModelAdmin):
-    list_display = ('name','temp','date','time')
+    list_display = ('name','temp','date_time')
     search_fields=('name',)
 
 class PeopleAdmin(admin.ModelAdmin):

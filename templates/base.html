@@ -25,8 +25,8 @@
             <nav class="sidebar">
                 <ul class="side-nav">
                     <li class="side-nav__item">
-                        <a href="#" class="side-nav__link">
-                            <img src="../static/img/meter.png" alt="" class="side-nav__icon">
+                        <a href="{% url 'dashboard' %}" class="side-nav__link">
+                            <img src="../static/img/dashboard.png" alt="" class="side-nav__icon">
                             <span>Dashboard</span>
                         </a>
                     </li>
@@ -37,13 +37,13 @@
                         </a>
                     </li>
                     <li class="side-nav__item">
-                        <a href="#" class="side-nav__link">
+                        <a href="{% url 'residents'%}" class="side-nav__link">
                             <img src="../static/img/office.png" alt="" class="side-nav__icon">
                             <span>Residents</span>
                         </a>
                     </li>
                     <li class="side-nav__item">
-                        <a href="#" class="side-nav__link">
+                        <a href="{% url 'staff'%}" class="side-nav__link">
                             <img src="../static/img/profile.png" alt="" class="side-nav__icon">
                             <span>Staff</span>
                         </a>
