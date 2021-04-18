@@ -7,7 +7,7 @@ class VisitorAdmin(admin.ModelAdmin):
     search_fields=('name',)
 
 class PeopleAdmin(admin.ModelAdmin):
-    list_display = ('name','role','contact','registration_date')
+    list_display = ('id','name','role','contact','registration_date')
     search_fields=('name','role')
 
 
