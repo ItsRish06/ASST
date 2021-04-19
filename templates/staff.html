@@ -7,7 +7,7 @@
 
 
 {% block content %}
-    <div class="resident-container">
+      <div class="resident-container">
         {% for people in people %}
         <div class="people-card">
             <div class="people-card__pic">
@@ -16,18 +16,21 @@
               </div>
             </div>
             <div class="people-card__info">
-              <span class="people-card__info-name">
-                {{people.name}}
-              </span>
-              <span class="people-card__info-contact">
-                Contact-{{people.contact}}
-              </span>
+              <div class="people-card__info-cont">
+                <span class="people-card__info-cont-name">
+                  {{people.name}}
+                </span>
+                <span class="people-card__info-cont-contact">
+                  Contact-{{people.contact}}
+                </span>
+              </div>
               <span class="people-card__info-address">
                 Address-{{people.address}}
               </span>
             </div>
           </div>
         {% endfor %}
+      </div>
     </div>
 
 {% endblock content %}

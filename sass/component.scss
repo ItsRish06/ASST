@@ -302,6 +302,7 @@
   
 .resident-container{
     height:100%; 
+    width:100%;
     display:grid;
     grid-template-rows:repeat(3,1fr);
     grid-template-columns:repeat(3,1fr);
@@ -344,14 +345,14 @@
       padding:20px;
       justify-content:space-around;
 
-      &-name{
-        font-size:30px;
-        font-weight:bold;
-      }
+        &-cont-name{
+            font-size:30px;
+            font-weight:bold;
+        }
 
-    &-contact{
-        font-size: 1.4rem;
-        margin-top:-7rem;
+        &-cont-contact{
+            font-size: 1.4rem;
+            
         }
 
     &-address{
@@ -366,3 +367,7 @@
 .img1{
     height:100px;
   }
+
+span{
+    display: inline-block;
+}

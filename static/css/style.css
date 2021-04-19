@@ -68,6 +68,7 @@ body {
 .content {
   display: flex;
   background-color: #DDE4EC;
+  width: 100vw;
 }
 
 .sidebar-container {
@@ -332,6 +333,7 @@ body {
 
 .resident-container {
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
@@ -369,13 +371,12 @@ body {
   padding: 20px;
   justify-content: space-around;
 }
-.people-card__info-name {
+.people-card__info-cont-name {
   font-size: 30px;
   font-weight: bold;
 }
-.people-card__info-contact {
+.people-card__info-cont-contact {
   font-size: 1.4rem;
-  margin-top: -7rem;
 }
 .people-card__info-address {
   font-size: 1.4rem;
@@ -383,6 +384,10 @@ body {
 
 .img1 {
   height: 100px;
+}
+
+span {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=style.css.map */
