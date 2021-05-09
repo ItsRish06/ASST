@@ -48,12 +48,22 @@
                             <span>Staff</span>
                         </a>
                     </li>
+                    {% if user.is_admin %}
                     <li class="side-nav__item">
                         <a href="{% url 'addVisitor'%}" class="side-nav__link">
                             <img src="../static/img/user-plus.png" alt="" class="side-nav__icon">
                             <span>Add Visitor</span>
                         </a>
                     </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="side-nav__item">
+                        <a href="{% url 'logout'%}" class="side-nav__link">
+                            <img src="../static/img/user-plus.png" alt="" class="side-nav__icon">
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

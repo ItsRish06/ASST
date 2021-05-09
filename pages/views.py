@@ -7,13 +7,34 @@ import datetime
 from django.db.models import Avg
 from itertools import chain
 from operator import attrgetter
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def loginPage(request):
-    form = CustomUserCreationForm()
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    else:
+        if request.method == "POST":
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            user = authenticate(request,email = email,password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('dashboard')
+            else:
+                messages.info(request, 'Email OR Password is incorrect')
+        context = {}
+    return render(request,'login.html',context)
 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+@login_required(login_url='login')
 def visitors(request):
     visitors = Visitor.objects.all()
     unKnown = UnknownVisitor.objects.all()
@@ -27,7 +48,10 @@ def visitors(request):
 
     return render(request,'visitors.html',context)
 
+@login_required(login_url='login')
 def addVisitors(request):
+    if not request.user.is_admin :
+        return redirect('dashboard')
     form = VisitorForm()
     form1 = UnknownVisitorForm()
     if request.method=="POST":
@@ -48,7 +72,7 @@ def unknownForm(request):
             return redirect('addVisitor')
     
 
-
+@login_required(login_url='login')
 def dashboardView(request):
     visitors = Visitor.objects.all().filter(date_time__gte = datetime.date.today())
     visitorsNumber = visitors.count()
@@ -72,7 +96,7 @@ def dashboardView(request):
 
     return render(request,'dashboard.html',context)
 
-
+@login_required(login_url='login')
 def residentView(request):
     people = People.objects.all().filter(role__title__contains = 'Resident')
 
@@ -82,6 +106,7 @@ def residentView(request):
 
     return render(request,'residents.html',context)
 
+@login_required(login_url='login')
 def staffView(request):
     people = People.objects.all().filter(role__title__contains = 'Staff')
 
