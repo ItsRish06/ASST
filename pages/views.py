@@ -87,6 +87,8 @@ def dashboardView(request):
     visitorsNumber = visitors.count()
     unknownVisitorsNumber = unknown.count()
     totalCount = visitorsNumber+unknownVisitorsNumber
+    if totalCount == 0:
+        totalCount = 1
     temp1 = visitors.aggregate(Avg('temp'))
     temp2 = unknown.aggregate(Avg('temp'))
     if  temp1['temp__avg'] == None :
