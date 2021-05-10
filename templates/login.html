@@ -9,28 +9,43 @@
     <title>login</title>
 </head>
 <body>
-    <div class="formView">
-        <div class="form-container__form">
-            <div class="form-container__form-header">
-                <span class="form-container__form-header__title">Login</span>
+    <div class="login-container">
+        <div class="infoView">
+            <h1 class="infoView-heading-primary">
+                <span class="infoView-heading-primary--main">Welcome </span>
+                <span class="infoView-heading-primary--main--2">To</span>
+                <span class="infoView-heading-primary--sub">ASST</span>
+            </h1>
+        </div>
+        <div class="formView">
+            <div class="login-form-container__form">
+                <div class="form-container__form-header">
+                    <span class="form-container__form-header__title">Login</span>
+                </div>
+                <form method="POST" class="form">
+                    {% csrf_token %}
+                    <div class="form__group">
+                        <label for='email' class="form__label">Email</label>
+                        <input type="email" name="email" class="form__input" placeholder='Email' id="id_email">
+                    </div>
+                    <div class="form__group">
+                        <label for='id_pass' class="form__label">Password</label>
+                        <input type="password" name="password" class="form__input" placeholder='Password' id='id_pass'>
+                    </div>
+                    <button type="submit" class="form__btn">Login</button>
+                </form>
+                <div class="form_group">
+                    {% for message in messages %}
+                        <p id="messages">{{message}}</p>
+                    {% endfor %}
+                     <p class ="login-info">Admin/staff - rishab@email.com pwd - abcd</p>
+                     <p class ="login-info">Resident - naruto@email.com pwd-abcd123</p>
+                </div>
+                
             </div>
-            <form method="POST" class="form">
-                {% csrf_token %}
-                <div class="form__group">
-                    <label for='email' class="form__label">Email</label>
-                    <input type="email" name="email" class="form__input" placeholder='Email' id="id_email">
-                </div>
-                <div class="form__group">
-                    <label for='id_pass' class="form__label">Password</label>
-                    <input type="password" name="password" class="form__input" placeholder='Password' id='id_pass'>
-                </div>
-                <button type="submit" class="form__btn">Login</button>
-            </form>
-            {% for message in messages %}
-					<p id="messages">{{message}}</p>
-			{% endfor %}
         </div>
     </div>
+    
     
     
 </body>
