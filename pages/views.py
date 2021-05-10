@@ -10,6 +10,7 @@ from operator import attrgetter
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import statistics
 
 # Create your views here.
 
@@ -87,14 +88,17 @@ def dashboardView(request):
     visitorsNumber = visitors.count()
     unknownVisitorsNumber = unknown.count()
     totalCount = visitorsNumber+unknownVisitorsNumber
+    l1=[]
     temp1 = visitors.aggregate(Avg('temp'))
     temp2 = unknown.aggregate(Avg('temp'))
-    if  temp1['temp__avg'] == None :
-        temp1['temp__avg'] = 0
-    if  temp2['temp__avg'] == None :
-        temp2['temp__avg'] = 0
-    temp = (temp1['temp__avg']+temp2['temp__avg'])/totalCount
-    tempNum = temp
+    if  temp1['temp__avg'] != None :
+        l1.append(temp1['temp__avg'])
+    if  temp2['temp__avg'] != None :
+        l1.append(temp2['temp__avg'])
+    if len(l1) == 0:
+        temp = 0
+    else:    
+        temp = statistics.mean(l1)
     
     try:
         highest1 = visitors.order_by('-temp')[0]
@@ -121,7 +125,7 @@ def dashboardView(request):
     
     context ={
         'visitors':totalCount,
-        'temp':int(tempNum),
+        'temp':int(temp),
         'highest':int(highest)
     }
 
