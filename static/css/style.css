@@ -215,9 +215,10 @@ body {
 }
 
 .visitor-list {
-  height: 100%;
+  height: 80%;
   padding: 1rem;
   overflow-y: scroll;
+  margin-top: 5rem;
 }
 
 .form-container {
@@ -388,6 +389,11 @@ body {
 
 span {
   display: inline-block;
+}
+
+.visitor-search {
+  height: 2.4rem;
+  width: 30rem;
 }
 
 /*# sourceMappingURL=style.css.map */

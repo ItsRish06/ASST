@@ -5,6 +5,11 @@
 {% block content-header %}Visitors{% endblock content-header %}
 
 {% block content %}
+    <div class="visitor-search">
+        <form method="GET" action="">
+            <input type="text" placeholder="Search" name="search" class="form__input" autocomplete="off">
+        </form>
+    </div>
     <div class="visitor-list">
         {% for visitor in visitors %}
             <div class="visitor-card">

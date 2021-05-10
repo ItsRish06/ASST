@@ -36,12 +36,20 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def visitors(request):
+
+    search = request.GET.get('search')
     visitors = Visitor.objects.all()
-    unKnown = UnknownVisitor.objects.all()
+    unknown = UnknownVisitor.objects.all()
+
+    if search:
+        visitors = visitors.filter(name__name__icontains=search)
+        unknown = unknown.filter(name__icontains=search)
+
     result_list = sorted(
-    chain(visitors, unKnown),
+    chain(visitors, unknown),
     key=attrgetter('date_time'),
     reverse=True)
+
     context = {
         'visitors' : result_list
     }
@@ -75,21 +83,44 @@ def unknownForm(request):
 @login_required(login_url='login')
 def dashboardView(request):
     visitors = Visitor.objects.all().filter(date_time__gte = datetime.date.today())
+    unknown = UnknownVisitor.objects.all().filter(date_time__gte = datetime.date.today())
     visitorsNumber = visitors.count()
-    temp = visitors.aggregate(Avg('temp'))
-    tempNum = (temp['temp__avg'])
-    if  tempNum == None:
-        tempNum = 0
+    unknownVisitorsNumber = unknown.count()
+    totalCount = visitorsNumber+unknownVisitorsNumber
+    temp1 = visitors.aggregate(Avg('temp'))
+    temp2 = unknown.aggregate(Avg('temp'))
+    if  temp1['temp__avg'] == None :
+        temp1['temp__avg'] = 0
+    if  temp2['temp__avg'] == None :
+        temp2['temp__avg'] = 0
+    temp = (temp1['temp__avg']+temp2['temp__avg'])/totalCount
+    tempNum = temp
+    
     try:
-        highest = visitors.order_by('-temp')[0]
+        highest1 = visitors.order_by('-temp')[0]
     except:
-        highest = None
-    if highest == None:
-        highest = 0
+        highest1 = None
+    if highest1 == None:
+        highest1 = 0
     else:
-        highest = highest.temp
+        highest1 = highest1.temp
+
+    try:
+        highest2 = unknown.order_by('-temp')[0]
+    except:
+        highest2 = None
+    if highest2 == None:
+        highest2 = 0
+    else:
+        highest2 = highest2.temp
+
+    if highest1>highest2:
+        highest = highest1
+    else:
+        highest=highest2
+    
     context ={
-        'visitors':visitorsNumber,
+        'visitors':totalCount,
         'temp':int(tempNum),
         'highest':int(highest)
     }
