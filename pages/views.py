@@ -87,15 +87,16 @@ def dashboardView(request):
     visitorsNumber = visitors.count()
     unknownVisitorsNumber = unknown.count()
     totalCount = visitorsNumber+unknownVisitorsNumber
-    if totalCount == 0:
-        totalCount = 1
+    tempDiv = totalCount
+    if tempDiv == 0:
+        tempDiv = 1
     temp1 = visitors.aggregate(Avg('temp'))
     temp2 = unknown.aggregate(Avg('temp'))
     if  temp1['temp__avg'] == None :
         temp1['temp__avg'] = 0
     if  temp2['temp__avg'] == None :
         temp2['temp__avg'] = 0
-    temp = (temp1['temp__avg']+temp2['temp__avg'])/totalCount
+    temp = (temp1['temp__avg']+temp2['temp__avg'])/tempDiv
     tempNum = temp
     
     try:
