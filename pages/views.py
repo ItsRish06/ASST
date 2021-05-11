@@ -41,7 +41,7 @@ def visitors(request):
 
     search = request.GET.get('search')
     date = request.GET.get('date')
-    print(date)
+    print(type(date))
     visitors = Visitor.objects.all()
     unknown = UnknownVisitor.objects.all()
 
@@ -50,8 +50,9 @@ def visitors(request):
         unknown = unknown.filter(name__icontains=search)
 
     if date:
-        visitors = visitors.filter(date_time__gte = date)
-        unknown = unknown.filter(date_time__gte = date)
+        visitors = visitors.filter(date_time__gte = date,date_time__lte = date+' 23:59')
+        unknown = unknown.filter(date_time__gte = date,date_time__lte = date+' 23:59')
+        print(visitors[0].date_time)
 
     result_list = sorted(
     chain(visitors, unknown),
