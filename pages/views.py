@@ -40,12 +40,18 @@ def logoutUser(request):
 def visitors(request):
 
     search = request.GET.get('search')
+    date = request.GET.get('date')
+    print(date)
     visitors = Visitor.objects.all()
     unknown = UnknownVisitor.objects.all()
 
     if search:
         visitors = visitors.filter(name__name__icontains=search)
         unknown = unknown.filter(name__icontains=search)
+
+    if date:
+        visitors = visitors.filter(date_time__gte = date)
+        unknown = unknown.filter(date_time__gte = date)
 
     result_list = sorted(
     chain(visitors, unknown),

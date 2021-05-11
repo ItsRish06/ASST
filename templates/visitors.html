@@ -5,11 +5,16 @@
 {% block content-header %}Visitors{% endblock content-header %}
 
 {% block content %}
-    <div class="visitor-search">
+    <span class="visitor-search">
         <form method="GET" action="">
             <input type="text" placeholder="Search" name="search" class="form__input" autocomplete="off">
         </form>
-    </div>
+    </span>
+    <span class="visitor-search">
+        <form method="GET" action="">
+            <input type="text" placeholder="YYYY-MM-DD" name="date" class="form__input" autocomplete="off">
+        </form>
+    </span>
     <div class="visitor-list">
         {% for visitor in visitors %}
             <div class="visitor-card">
