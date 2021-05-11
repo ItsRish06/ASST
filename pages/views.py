@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import statistics
+from .utils import sendMail
 
 # Create your views here.
 
@@ -64,6 +65,13 @@ def addVisitors(request):
     form = VisitorForm()
     form1 = UnknownVisitorForm()
     if request.method=="POST":
+        people = People.objects.get(id = request.POST.get('name'))
+        info = {
+            "name":people.name,
+            "temp":int(request.POST.get('temp'))
+        }
+        if info['temp']>37:
+            sendMail(info)
         form = VisitorForm(request.POST)
         if form.is_valid():
             form.save()
