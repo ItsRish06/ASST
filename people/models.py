@@ -35,6 +35,8 @@ class UnknownVisitor(models.Model):
     name = models.CharField(max_length=150)
     temp = models.IntegerField()
     date_time = models.DateTimeField(auto_now_add=True)
+    contact = models.CharField(max_length=500,null=True,blank=True)
+    visiting = models.CharField(max_length=500,null=True,blank=True)
 
     def __str__(self):
         return self.name

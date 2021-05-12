@@ -9,7 +9,7 @@ def sendMail(info):
     msg = EmailMessage()
     msg['Subject'] = 'Resident temperature high!'
     msg['From'] = EMAIL_ADDRESS
-    msg['to'] = 'rishab.shetty06@gmail.com'
+    msg['to'] = 'debanik.kundu@sakec.ac.in'
     msg.set_content(body)
 
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
