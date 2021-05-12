@@ -24,7 +24,7 @@ def add_visitor(request):
             serializer.save()
         print(serializer)
         print(request.data['temp'])
-        if request.data['temp']>37:
+        if int(request.data['temp'])>37:
             people = People.objects.get(id = request.data['name'])
             info = {
                 'name':people.name,
