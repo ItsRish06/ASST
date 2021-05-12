@@ -149,7 +149,7 @@ def dashboardView(request):
 @login_required(login_url='login')
 def residentView(request):
     people = People.objects.all().filter(role__title__contains = 'Resident')
-
+    print(people[1].image)
     context = {
         'people':people
     }

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block title %}Residents{% endblock title %}
 
 {% block content-header %}Residents{% endblock content-header %}
@@ -12,7 +13,7 @@
         <div class="people-card">
             <div class="people-card__pic">
               <div class="people-card__pic-1">
-                <img src="https://i.pinimg.com/564x/04/cd/4d/04cd4dc05db938aa4a24f8cec5a49f38.jpg" class="img1">
+                <img src="{{ people.image.url }}" class="img1" alt="ProfilePic">
               </div>
             </div>
             <div class="people-card__info">
