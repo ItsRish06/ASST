@@ -20,6 +20,10 @@ def add_visitor(request):
             
     elif request.method=='POST':
         serializer = VisitorSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+        print(serializer)
+        print(request.data['temp'])
         if request.data['temp']>37:
             people = People.objects.get(id = request.data['name'])
             info = {
