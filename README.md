@@ -19,6 +19,16 @@ For our final year project, considering this covid-19 pandemic, we wanted to bui
 
 ## Flowchart
 
+![flowchart](./project_imgs/Flowchart.png)
+
+
+### Face recognition flowchart
+![faceflow](./project_imgs/faceflow.png)
+
+## Website screenshots
+
+
+
 
 
 
