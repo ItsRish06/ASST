@@ -32,8 +32,9 @@ Page Object Model, also known as POM, is used in this project. POM is a design p
     - NUnit
     - Extent Report
     
- Report Screenshots -
- ![Report1]()
+ ### Report Screenshots -
+ ![Report1](./project_imgs/asst-test-report-ss.png)
+ ![Report2](./project_imgs/asst-test-report-ss2.png)
 
 ## Flowchart
 
