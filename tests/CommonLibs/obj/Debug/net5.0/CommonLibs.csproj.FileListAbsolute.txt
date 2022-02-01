@@ -1,0 +1,12 @@
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\bin\Debug\net5.0\CommonLibs.deps.json
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\bin\Debug\net5.0\CommonLibs.dll
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\bin\Debug\net5.0\ref\CommonLibs.dll
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\bin\Debug\net5.0\CommonLibs.pdb
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.csproj.AssemblyReference.cache
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.AssemblyInfoInputs.cache
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.AssemblyInfo.cs
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.csproj.CoreCompileInputs.cache
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.dll
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\ref\CommonLibs.dll
+C:\Users\Rishab\source\repos\ModularFramework\CommonLibs\obj\Debug\net5.0\CommonLibs.pdb
