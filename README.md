@@ -15,11 +15,25 @@ For our final year project, considering this covid-19 pandemic, we wanted to bui
   - Infrared temperature sensor
   - LCD display
 
-## Software used - 
+## Technologies used - 
 
   - OpenCV
   - Django  
   - HTML / CSS (SCSS)
+
+## Testing -
+
+TDD based automated tests are written using Selenium and Nunit.Extent Report is used for logging and generating html reports.
+
+Page Object Model, also known as POM, is used in this project. POM is a design pattern in Selenium that creates an object repository for storing all web elements.
+
+  ### Technologies used-
+    - Selenium
+    - NUnit
+    - Extent Report
+    
+ Report Screenshots -
+ ![Report1]()
 
 ## Flowchart
 
